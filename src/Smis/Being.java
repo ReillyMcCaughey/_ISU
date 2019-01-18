@@ -8,6 +8,7 @@ public abstract class Being {
     protected static int count = -1;
     protected static int money = 200; //0-infinity
     protected static double time = 0; //0-24?
+    protected String temp;
     
     public Being(String nm){ //set your own name
         name = nm;
