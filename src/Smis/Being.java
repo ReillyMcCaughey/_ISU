@@ -34,20 +34,25 @@ public abstract class Being {
     
     public final String eat(){
         //idea is that you eat more depending on how hungry you are
-        advanceTime(0.5);
         if(hunger >=0 && hunger <=33){
+            advanceTime(0.5);
             hunger += generate(25) + 40; 
             return name + " has eaten some food.";
         }
         if(hunger >=34 && hunger <=67){
+            advanceTime(0.5);
             hunger += generate(10) + 20; 
             return name + " has eaten some food.";
         }
         if(hunger >=68 && hunger <=90){
+            advanceTime(0.5);
             hunger += generate(10);
             return name + " has eaten some food.";
         } 
-        if(hunger >=91 && hunger <=100) return "Can not eat. " + name + " is not hungry enough.";
+        if(hunger >=91 && hunger <=100){
+            advanceTime(0.5);
+            return "Can not eat. " + name + " is not hungry enough.";
+        }
         else
             return "Can not eat at this time.";
     }
