@@ -1,4 +1,11 @@
-
+/*TODO
+*Create ArrayList(Compare the count property)
+*ListIterator?
+*Maybe a stack? There is no need for an ArrayList if you won't be able to remove Smis 
+    (ask if you have to be able remove them)
+*Update actions performed by menus
+*Add buttons to change which Smi is being displayed(Like task?)
+*/
 package Smis;
 
 import javax.swing.JOptionPane;
@@ -6,6 +13,7 @@ import javax.swing.JOptionPane;
 public class SmisGame extends javax.swing.JFrame {
     
     Being b;
+    //ArrayList<Being> list = new ArrayList<Being>();
 
     public SmisGame() {
         initComponents();
@@ -203,12 +211,30 @@ public class SmisGame extends javax.swing.JFrame {
         form.setVisible(true);
         if(form.getSignal().equals("Ok")){ //receive the "OK" from the JDialog
             b = form.getBeing(); 
+            //list.add(b);
             update();
             txtoutput.setText("You purchased a new Smi! \n\n" + b.info());
-            //txtmoney.setText(Integer.toString(Being.getMoney()));
         }
     }//GEN-LAST:event_mnuconfirmpurchaseActionPerformed
-
+    
+    /*Will be for play
+        b.play();
+        txtoutput.setText(b.playString());
+        update();
+    */
+    /*Eat
+        b.eat()
+        update();
+    */
+    /*Exclusive,different for Dog and Person
+        //b.dig();
+        //or//b.work();
+        update();
+    */
+    /*Sleep
+        b.sleep();
+        update();
+    */
     /**
      * @param args the command line arguments
      */
@@ -274,11 +300,21 @@ public class SmisGame extends javax.swing.JFrame {
     private javax.swing.JLabel txtti;
     // End of variables declaration//GEN-END:variables
 
-    private void update() {
+    private void update() {//update the displays for hunger, happiness, money, etc.
         txtmon.setText(Integer.toString(Being.getMoney()));
         txthap.setText(Integer.toString(b.getHappiness()));
         txthung.setText(Integer.toString(b.getHunger()));
         txtexclusive.setText(b.getExclusive());
         txtti.setText(Double.toString(Being.getTime()));
+        //checkDeath();
     }
+    /*
+    private boolean checkDeath(){
+        if(b.getHappiness <=0){ list.remove(b); return true;}
+        if(b.getHunger <=0){ list.remove(b); return true;}
+        if(((Person)b).getStress() >= 100){ list.remove(b); return true;}
+        if(((Dog)b).getAttention() <= 0){ list.remove(b); return true;}
+        else return false;
+    }
+    */
 }
